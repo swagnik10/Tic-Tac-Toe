@@ -9,71 +9,73 @@ let box8 = document.getElementById("box8");
 let box9 = document.getElementById("box9");
 
 let resetBtn = document.getElementById("reset_btn");
+let winner = document.getElementById("winner");
 
 let turn = 0;
+let gotWinner = false;
 
 Reset();
 
 box1.addEventListener("click", () => {
-    if(box1.innerHTML !== 'X' && box1.innerHTML !== 'O')
+    if(!gotWinner && box1.textContent !== 'X' && box1.textContent !== 'O')
     {
-        box1.innerHTML = DisplayValue(turn++);
+        box1.textContent = DisplayValue(turn++);
         GamePlay(); 
     }        
 })
 box2.addEventListener("click", () => {
-    if(box2.innerHTML !== 'X' && box2.innerHTML !== 'O')
+    if(!gotWinner && box2.textContent !== 'X' && box2.textContent !== 'O')
     {
-        box2.innerHTML = DisplayValue(turn++);
+        box2.textContent = DisplayValue(turn++);
         GamePlay(); 
     }
 })
 box3.addEventListener("click", () => {
-    if(box3.innerHTML !== 'X' && box3.innerHTML !== 'O')
+    if(!gotWinner && box3.textContent !== 'X' && box3.textContent !== 'O')
     {
-        box3.innerHTML = DisplayValue(turn++);
+        box3.textContent = DisplayValue(turn++);
         GamePlay(); 
     }
 })
 box4.addEventListener("click", () => {
-    if(box4.innerHTML !== 'X' && box4.innerHTML !== 'O')
+    if(!gotWinner && box4.textContent !== 'X' && box4.textContent !== 'O')
     {
-        box4.innerHTML = DisplayValue(turn++);
+        box4.textContent = DisplayValue(turn++);
         GamePlay(); 
     }
 })
 box5.addEventListener("click", () => {
-    if(box5.innerHTML !== 'X' && box5.innerHTML !== 'O')
+    if(!gotWinner && box5.textContent !== 'X' && box5.textContent !== 'O')
     {
-        box5.innerHTML = DisplayValue(turn++);
+        box5.textContent = DisplayValue(turn++);
         GamePlay(); 
     }
 })
 box6.addEventListener("click", () => {
-    if(box6.innerHTML !== 'X' && box6.innerHTML !== 'O')
+    if(!gotWinner && box6.textContent !== 'X' && box6.textContent !== 'O')
     {
-        box6.innerHTML = DisplayValue(turn++);
+        box6.textContent = DisplayValue(turn++);
         GamePlay(); 
     }
 })
 box7.addEventListener("click", () => {
-    if(box7.innerHTML !== 'X' && box7.innerHTML !== 'O')
+    if(!gotWinner && box7.textContent !== 'X' && box7.textContent !== 'O')
     {
-        box7.innerHTML = DisplayValue(turn++);
+        box7.textContent = DisplayValue(turn++);
         GamePlay(); 
     }
 })
 box8.addEventListener("click", () => {
-    if(box8.innerHTML !== 'X' && box8.innerHTML !== 'O')
+    if(!gotWinner && box8.textContent !== 'X' && box8.textContent !== 'O')
     {
-        box8.innerHTML = DisplayValue(turn++);
+        box8.textContent = DisplayValue(turn++);
         GamePlay(); 
     }
 })
 box9.addEventListener("click", () => {
-    if(box9.innerHTML !== 'X' && box9.innerHTML !== 'O')
+    if(!gotWinner && box9.textContent !== 'X' && box9.textContent !== 'O')
     {
-        box9.innerHTML = DisplayValue(turn++);
+        box9.textContent = DisplayValue(turn++);
         GamePlay(); 
     }
 })
@@ -100,68 +102,71 @@ function DisplayValue(turn)
 
 function GamePlay()
 {
-    if(box1.innerHTML != "" && box1.innerHTML === box2.innerHTML && box2.innerHTML === box3.innerHTML)
+    if(box1.textContent != "" && box1.textContent === box2.textContent && box2.textContent === box3.textContent)
     {       
-        // alert(box1.innerHTML + " wins");
+        // alert(box1.textContent + " wins");
         // Reset();
-        setTimeout(() => {
-            alert(box1.innerHTML + " wins");
-            Reset();
-        }, 0);
+        // setTimeout(() => {
+        //     //alert(box1.textContent + " wins");
+        //     Winner(box1.textContent);
+        //     //Reset();
+        // }, 0);
+        Winner(box1.textContent);
     }
-    else if(box4.innerHTML != "" && box4.innerHTML === box5.innerHTML && box5.innerHTML === box6.innerHTML){
-         setTimeout(() => {
-            alert(box4.innerHTML + " wins");
-            Reset();
-        }, 0);
+    else if(box4.textContent != "" && box4.textContent === box5.textContent && box5.textContent === box6.textContent){        
+        Winner(box4.textContent);
     }
-    else if(box7.innerHTML != "" && box7.innerHTML === box8.innerHTML && box8.innerHTML === box9.innerHTML){
-         setTimeout(() => {
-            alert(box7.innerHTML + " wins");
-            Reset();
-        }, 0);
+    else if(box7.textContent != "" && box7.textContent === box8.textContent && box8.textContent === box9.textContent){        
+        Winner(box7.textContent);
     }
-    else if(box1.innerHTML != "" && box1.innerHTML === box4.innerHTML && box4.innerHTML === box7.innerHTML){
-        setTimeout(() => {
-            alert(box1.innerHTML + " wins");
-            Reset();
-        }, 0);
+    else if(box1.textContent != "" && box1.textContent === box4.textContent && box4.textContent === box7.textContent){        
+        Winner(box1.textContent);
     }
-    else if(box2.innerHTML != "" && box2.innerHTML === box5.innerHTML && box5.innerHTML === box8.innerHTML){
-        setTimeout(() => {
-            alert(box2.innerHTML + " wins");
-            Reset();
-        }, 0);
+    else if(box2.textContent != "" && box2.textContent === box5.textContent && box5.textContent === box8.textContent){        
+        Winner(box2.textContent);
     }
-    else if(box3.innerHTML != "" && box3.innerHTML === box6.innerHTML && box6.innerHTML === box9.innerHTML){
-        setTimeout(() => {
-            alert(box3.innerHTML + " wins");
-            Reset();
-        }, 0);
+    else if(box3.textContent != "" && box3.textContent === box6.textContent && box6.textContent === box9.textContent){        
+        Winner(box3.textContent);
     }
-    else if(box1.innerHTML != "" && box1.innerHTML === box5.innerHTML && box5.innerHTML === box9.innerHTML){
-        setTimeout(() => {
-            alert(box1.innerHTML + " wins");
-            Reset();
-        }, 0);
+    else if(box1.textContent != "" && box1.textContent === box5.textContent && box5.textContent === box9.textContent){        
+        Winner(box1.textContent);
     }
-    else if(box3.innerHTML != "" && box3.innerHTML === box5.innerHTML && box5.innerHTML === box7.innerHTML){
-        setTimeout(() => {
-            alert(box3.innerHTML + " wins");
-            Reset();
-        }, 0);
+    else if(box3.textContent != "" && box3.textContent === box5.textContent && box5.textContent === box7.textContent){        
+        Winner(box3.textContent);
+    }
+    //draw condition
+    else if(turn === 9 && !gotWinner)
+    {
+        DrawGame();
     }
         
-    else
-        console.log("Not get a winner yet !!");
+    // else
+    //     console.log("Not get a winner yet !!");
 }
 
 function Reset()
 {
+    winner.classList.add("hidden");
+    gotWinner = false;
     let boxes = [box1, box2, box3, box4, box5, box6, box7, box8, box9];
     for (let i = 0; i < boxes.length; i++) {
         // Use the index to access the object
-        boxes[i].innerHTML = ""; 
-        turn = 0;
+        boxes[i].textContent = "";    
     }
+    turn = 0;
+    resetBtn.textContent = "Reset";
+}
+
+function Winner(winnerName)
+{
+    gotWinner = true;
+    winner.classList.remove("hidden");
+    winner.textContent = `Player ${winnerName} won!!`;
+}
+
+function DrawGame()
+{
+    winner.classList.remove("hidden");
+    winner.textContent = `It's a Draw!!`;
+    resetBtn.textContent = "Play Again";
 }
